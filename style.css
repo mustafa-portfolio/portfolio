@@ -1,3 +1,6 @@
+html {
+    scroll-behavior: smooth;
+}
 /* ==========================================
    1. TEMEL STİLLER & YUMUŞAK SCROLL
    ========================================== */
@@ -708,4 +711,170 @@ body.dark-mode .tab-btn.active { color: #60a5fa; border-bottom-color: #60a5fa; }
 
 .copy-btn:hover {
     background: rgba(255, 255, 255, 0.2);
+}
+/* ==========================================
+   MODERN İLETİŞİM FORMU STİLLERİ
+   ========================================== */
+
+.contact-card-wrapper {
+    max-width: 580px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.contact-form.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    padding: 35px 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form.glass-card:hover {
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.form-header h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.form-header p {
+    font-size: 0.95rem;
+    opacity: 0.8;
+}
+
+.form-group {
+    margin-bottom: 22px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Input ve Textarea Stilleri */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.04);
+    color: inherit;
+    font-family: inherit;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.25s ease;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+/* Yazı yazarken veya odaklanınca oluşacak parlama efekti */
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #6366f1;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+    transform: translateY(-1px);
+}
+
+/* Placeholder (İpucu yazısı) Stili */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    opacity: 0.45;
+}
+
+/* Gönder Butonu */
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* ==========================================
+   GÜNDÜZ (AÇIK) MOD İÇİN RENK VE METİN DÜZELTMELERİ
+   ========================================== */
+
+/* Açık modda kart arka planı ve genel metin rengi */
+html:not(.dark-mode) .contact-form.glass-card {
+    background: rgba(255, 255, 255, 0.92) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    color: #1e293b !important;
+}
+
+/* Başlık ve alt başlık metinleri */
+html:not(.dark-mode) .form-header h3 {
+    color: #0f172a !important;
+}
+
+html:not(.dark-mode) .form-header p {
+    color: #475569 !important;
+    opacity: 1 !important;
+}
+
+/* Alan Etiketleri (Adınız, E-posta vb.) */
+html:not(.dark-mode) .form-group label {
+    color: #334155 !important;
+}
+
+/* Input ve Textarea Kutuları */
+html:not(.dark-mode) .form-group input,
+html:not(.dark-mode) .form-group textarea {
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #0f172a !important;
+}
+
+/* Input Odaklanma (Focus) Hali */
+html:not(.dark-mode) .form-group input:focus,
+html:not(.dark-mode) .form-group textarea:focus {
+    background: #ffffff !important;
+    border-color: #6366f1 !important;
+    box-shadow: 0 0 12px rgba(99, 102, 241, 0.25) !important;
+}
+
+/* İpucu (Placeholder) Yazıları */
+html:not(.dark-mode) .form-group input::placeholder,
+html:not(.dark-mode) .form-group textarea::placeholder {
+    color: #64748b !important;
+    opacity: 1 !important;
 }

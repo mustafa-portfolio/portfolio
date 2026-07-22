@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     
+    <!-- Gece Modu Flaş Önleyici Script -->
     <script>
         if (localStorage.getItem('theme') === 'dark') {
             document.documentElement.classList.add('dark-mode');
@@ -80,7 +81,9 @@
                 </div>
             </div>
 
-            <button type="button" id="toggle-projeler-btn" class="btn-primary hero-btn">Projelerimi İncele 🚀</button>
+            <button type="button" class="btn-primary hero-btn" onclick="document.getElementById('projeler').scrollIntoView({ behavior: 'smooth' }); return false;">
+    Projelerimi İncele 🚀
+</button>
         </div>
     </header>
 
@@ -90,16 +93,18 @@
             <h2 class="section-title">Öne Çıkan Projelerim 🚀</h2>
 
             <div class="card-grid">
+                <!-- 1. PROJE: Kişisel Portfolyo Sitem -->
                 <div class="project-card card">
                     <div class="project-tag">HTML & CSS</div>
                     <h3>Kişisel Blog & Portfolyo</h3>
                     <p>Sıfırdan tasarladığım, gece modu desteği ve akıcı animasyonlara sahip modern kişisel web sitesi.</p>
                     <div class="project-links">
                         <a href="index.html" class="project-btn demo-btn">Canlı Demo</a>
-                        <a href="#" class="project-btn code-btn">Kodları Gör</a>
+                        <a href="https://github.com/mustafa-portfolio/portfolio" target="_blank" class="project-btn code-btn">Kodları Gör ↗</a>
                     </div>
                 </div>
 
+                <!-- 2. PROJE: İnteraktif To-Do App -->
                 <div class="project-card card">
                     <div class="project-tag">JavaScript</div>
                     <h3>İnteraktif Yapılacaklar (To-Do)</h3>
@@ -110,17 +115,17 @@
                     </div>
                 </div>
 
-                <!-- Proje 3 Kartı (index.html İçinde) -->
-<div class="project-card card">
-    <div class="project-tag">Web App</div>
-    <h3>Hava Durumu Uygulaması</h3>
-    <p>API kullanarak anlık hava durumu verilerini çeken, minimalist arayüzlü web uygulaması.</p>
-    <div class="project-links">
-        <a href="havadurumu.html" class="project-btn demo-btn">Canlı Demo</a>
-        <!-- href="kodlar.html" YAPILDI -->
-        <a href="kodlar.html" class="project-btn code-btn">Kodları Gör</a>
-    </div>
-</div>
+                <!-- 3. PROJE: Hava Durumu Uygulaması -->
+                <div class="project-card card">
+                    <div class="project-tag">Web App</div>
+                    <h3>Hava Durumu Uygulaması</h3>
+                    <p>API kullanarak anlık hava durumu verilerini çeken, minimalist arayüzlü web uygulaması.</p>
+                    <div class="project-links">
+                        <a href="havadurumu.html" class="project-btn demo-btn">Canlı Demo</a>
+                        <a href="kodlar.html" class="project-btn code-btn">Kodları Gör</a>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 

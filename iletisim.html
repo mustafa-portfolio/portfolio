@@ -49,25 +49,43 @@
         </div>
     </nav>
 
-    <!-- İLETİŞİM İÇERİK BÖLÜMÜ -->
-    <main class="container">
-        <h2 class="section-title">İletişime Geç 📬</h2>
-
-        <div class="card" style="max-width: 600px; margin: 0 auto; text-align: center;">
-            <h3>Bana Ulaşın</h3>
-            <p style="margin-bottom: 24px;">
-                Projelerim, fikirleriniz veya sadece tanışmak için bana aşağıdaki kanallardan ulaşabilirsiniz.
-            </p>
-
-            <div class="contact-info-list">
-                <div class="contact-item">
-                    📧 <strong>E-posta:</strong> mmustafakose@icloud.com
-                </div>
-                <div class="contact-item">
-                    📍 <strong>Konum:</strong> Ankara, Türkiye
-                </div>
-            </div>
+    <!-- İLETİŞİM FORMU (MODERN & GLASSMORKİF) -->
+<div class="contact-card-wrapper">
+    <form action="https://formspree.io/f/mlgqwjyj" method="POST" class="contact-form glass-card">
+        
+        <div class="form-header">
+            <h3>Bana Ulaşın 👋</h3>
+            <p>Projeler, iş birlikleri veya sadece sohbet etmek için mesaj bırakabilirsiniz.</p>
         </div>
+
+        <div class="form-group">
+            <label for="name">
+                <span>👤</span> Adınız Soyadınız
+            </label>
+            <input type="text" id="name" name="name" required placeholder="Ahmet Yılmaz" autocomplete="name">
+        </div>
+
+        <div class="form-group">
+            <label for="email">
+                <span>✉️</span> E-posta Adresiniz
+            </label>
+            <input type="email" id="email" name="_replyto" required placeholder="ahmet@example.com" autocomplete="email">
+        </div>
+
+        <div class="form-group">
+            <label for="message">
+                <span>💬</span> Mesajınız
+            </label>
+            <textarea id="message" name="message" rows="4" required placeholder="Aklınızdaki projeyi veya sorunuzu yazın..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary submit-btn">
+            <span>Mesajı Gönder</span>
+            <span class="btn-icon">🚀</span>
+        </button>
+
+    </form>
+</div>
     </main>
 
     <script src="script.js"></script>

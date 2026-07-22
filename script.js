@@ -88,3 +88,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+// Projelerimi İncele Butonuna Tıklayınca Başa Dönmeyi Engelle ve Aşağı Kaydır
+document.addEventListener('DOMContentLoaded', () => {
+    const projelerBtn = document.getElementById('toggle-projeler-btn');
+    const projelerSection = document.getElementById('projeler');
+
+    if (projelerBtn && projelerSection) {
+        projelerBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // Sayfanın en başa fırlamasını ENGELER
+            projelerSection.scrollIntoView({ behavior: 'smooth' }); // Yumuşakça aşağı kaydırır
+        });
+    }
+});
