@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim - Kodlama Yolculuğum</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark-mode');
+        }
+    </script>
+</head>
+<body>
+
+    <!-- ÜST NAVİGASYON MENÜSÜ -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span>🚀</span> KodlamaYolculuğum
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="hakkimda.html">Hakkımda</a></li>
+                <li><a href="iletisim.html" class="active">İletişim</a></li>
+                <li>
+                    <button id="theme-toggle" class="theme-icon-btn" aria-label="Temayı Değiştir" title="Temayı Değiştir">
+                        <svg id="theme-moon" class="theme-svg" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="theme-sun" class="theme-svg hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- İLETİŞİM İÇERİK BÖLÜMÜ -->
+    <main class="container">
+        <h2 class="section-title">İletişime Geç 📬</h2>
+
+        <div class="card" style="max-width: 600px; margin: 0 auto; text-align: center;">
+            <h3>Bana Ulaşın</h3>
+            <p style="margin-bottom: 24px;">
+                Projelerim, fikirleriniz veya sadece tanışmak için bana aşağıdaki kanallardan ulaşabilirsiniz.
+            </p>
+
+            <div class="contact-info-list">
+                <div class="contact-item">
+                    📧 <strong>E-posta:</strong> mmustafakose@icloud.com
+                </div>
+                <div class="contact-item">
+                    📍 <strong>Konum:</strong> Ankara, Türkiye
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
