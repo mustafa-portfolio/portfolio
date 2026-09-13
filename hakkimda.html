@@ -1,72 +1,69 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hakkımda - Kodlama Yolculuğum</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    
-    <script>
-        if (localStorage.getItem('theme') === 'dark') {
-            document.documentElement.classList.add('dark-mode');
-        }
-    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hakkımda — Mustafa Köse</title>
+<meta name="description" content="Mustafa Köse hakkında: front-end geliştirme yolculuğu ve şu anki beceri seviyesi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+  if (localStorage.getItem('theme') === 'light') {
+    document.documentElement.classList.add('light-mode');
+  }
+</script>
 </head>
 <body>
 
-    <!-- ÜST NAVİGASYON MENÜSÜ -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">
-                <span>🚀</span> KodlamaYolculuğum
-            </a>
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo"><span class="dot"></span> Kodlama Yolculuğu</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Ana Sayfa</a></li>
+      <li><a href="hakkimda.html" class="active">Hakkımda</a></li>
+      <li><a href="iletisim.html">İletişim</a></li>
+      <li>
+        <button id="theme-toggle" class="theme-icon-btn" aria-label="Temayı değiştir" title="Temayı değiştir">
+          <svg id="theme-moon" class="theme-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg id="theme-sun" class="theme-svg hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-            <ul class="nav-links">
-                <li><a href="index.html">Ana Sayfa</a></li>
-                <li><a href="hakkimda.html" class="active">Hakkımda</a></li>
-                <li><a href="iletisim.html">İletişim</a></li>
-                <li>
-                    <button id="theme-toggle" class="theme-icon-btn" aria-label="Temayı Değiştir" title="Temayı Değiştir">
-                        <svg id="theme-moon" class="theme-svg" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                        <svg id="theme-sun" class="theme-svg hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                    </button>
-                </li>
-            </ul>
-        </div>
-    </nav>
+<header class="page-header container">
+  <p class="hero-kicker stop-tag">Hakkımda</p>
+  <h1>Kod yazmayı, kod yazarak öğreniyorum.</h1>
+</header>
 
-    <!-- HAKKIMDA İÇERİK BÖLÜMÜ -->
-    <main class="container">
-        <h2 class="section-title">Benim Hakkımda 👨‍💻</h2>
+<main class="container about-grid">
+  <div>
+    <p>Ankara'da yaşıyorum ve front-end geliştirmeye kendi kendime, gerçek projeler kurarak öğreniyorum. Bir konuyu okumak yerine önce denemeyi, hatalarımdan öğrenmeyi tercih ediyorum — bu site de tam olarak o şekilde ortaya çıktı.</p>
+    <p>Şu anda odağım temiz, erişilebilir HTML/CSS yazmak ve JavaScript ile arayüzleri gerçekten etkileşimli hale getirmek. Sıradaki hedefim bir framework öğrenmek ve API'lerle daha karmaşık uygulamalar kurmak.</p>
+    <p>Bu portfolyo statik bir CV değil — büyüdükçe güncellediğim, canlı bir günlük gibi düşünülebilir.</p>
+  </div>
 
-        <div class="card" style="max-width: 800px; margin: 0 auto;">
-            <h3>Merhaba!</h3>
-            <p style="margin-bottom: 16px;">
-                Yazılım ve web geliştirme dünyasına sıfırdan adım attım. Kod yazarak fikirleri gerçeğe dönüştürmeyi ve kendi projelerimi inşa etmeyi çok seviyorum.
-            </p>
-            <p style="margin-bottom: 16px;">
-                Şu anda <strong>HTML5</strong>, <strong>CSS3</strong> ve <strong>JavaScript</strong> teknolojilerini öğreniyor, temiz ve sürdürülebilir kod yazma üzerine pratik yapıyorum.
-            </p>
-            <p>
-                Hedefim: Tamamen responsive (mobil uyumlu), hızlı ve modern web uygulamaları geliştirmek.
-            </p>
-        </div>
-    </main>
+  <div>
+    <ul class="skill-list">
+      <li>HTML5 <span class="level">Rahat kullanıyorum</span></li>
+      <li>CSS3 / Flexbox & Grid <span class="level">Rahat kullanıyorum</span></li>
+      <li>JavaScript (DOM, olaylar) <span class="level">Geliştiriyorum</span></li>
+      <li>Fetch API & JSON <span class="level">Geliştiriyorum</span></li>
+      <li>Git & GitHub <span class="level">Öğreniyorum</span></li>
+      <li>Responsive tasarım <span class="level">Rahat kullanıyorum</span></li>
+    </ul>
+  </div>
+</main>
 
-    <script src="script.js"></script>
+<footer class="container">
+  <div class="footer-row">
+    <span>© 2026 Mustafa Köse</span>
+    <a href="https://github.com/mustafa-portfolio" target="_blank" rel="noopener">GitHub'da takip et</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>

@@ -1,102 +1,55 @@
-// Sayfa yenilendiğinde pozisyonu zorlamadan yumuşakça en üste kaydırır
-if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
-}
+// ---------- Tema değiştirici ----------
+// Site varsayılan olarak koyu (dark) temayla açılır.
+// Kullanıcı açık temayı seçerse <html> elementine "light-mode" sınıfı eklenir
+// ve tercih localStorage'da saklanır (bkz. her sayfanın <head> içindeki flash-önleyici script).
+(function () {
+  const toggleBtn = document.getElementById('theme-toggle');
+  const moonIcon = document.getElementById('theme-moon');
+  const sunIcon = document.getElementById('theme-sun');
 
-window.addEventListener('beforeunload', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+  if (!toggleBtn) return;
 
-window.addEventListener('load', () => {
-    setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 10);
-});
+  function syncIcons() {
+    const isLight = document.documentElement.classList.contains('light-mode');
+    moonIcon.classList.toggle('hidden', isLight);
+    sunIcon.classList.toggle('hidden', !isLight);
+  }
 
-// Sayfa yüklenir yüklenmez temayı uygula
-const savedTheme = localStorage.getItem('theme');
-const body = document.body;
-const html = document.documentElement;
+  syncIcons();
 
-if (savedTheme === 'dark') {
-    body.classList.add('dark-mode');
-    html.classList.add('dark-mode');
-}
+  toggleBtn.addEventListener('click', function () {
+    document.documentElement.classList.toggle('light-mode');
+    const isLight = document.documentElement.classList.contains('light-mode');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    syncIcons();
+  });
+})();
 
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Gece Modu Yönetimi
-    const themeToggle = document.getElementById('theme-toggle');
-    const moonIcon = document.getElementById('theme-moon');
-    const sunIcon = document.getElementById('theme-sun');
+// ---------- İletişim formu ----------
+// Not: Bu form şu an bir backend'e bağlı değil, sadece istemci tarafında
+// doğrulama ve kullanıcıya geri bildirim gösteriyor. Gerçek gönderim için
+// Formspree, EmailJS gibi bir servise ya da kendi API'ne bağlaman gerekir.
+(function () {
+  const form = document.getElementById('contact-form');
+  if (!form) return;
 
-    if (savedTheme === 'dark') {
-        if (moonIcon) moonIcon.classList.add('hidden');
-        if (sunIcon) sunIcon.classList.remove('hidden');
+  const status = document.getElementById('form-status');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+
+    if (!name || !email || !message) {
+      status.textContent = 'Lütfen tüm alanları doldur.';
+      status.style.color = 'var(--coral)';
+      return;
     }
 
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            html.classList.toggle('dark-mode');
-            
-            const isDarkMode = body.classList.contains('dark-mode');
-            
-            if (isDarkMode) {
-                localStorage.setItem('theme', 'dark');
-                if (moonIcon) moonIcon.classList.add('hidden');
-                if (sunIcon) sunIcon.classList.remove('hidden');
-            } else {
-                localStorage.setItem('theme', 'light');
-                if (sunIcon) sunIcon.classList.add('hidden');
-                if (moonIcon) moonIcon.classList.remove('hidden');
-            }
-        });
-    }
-
-    // 2. Projeler Buton Tıklaması Ve Scroll İle Yumuşak Görünme/Kapanma
-    const toggleProjelerBtn = document.getElementById('toggle-projeler-btn');
-    const projelerSection = document.getElementById('projeler');
-
-    // Düğmeye Tıklama: Anında aç ve yumuşakça oraya kaydır
-    if (toggleProjelerBtn && projelerSection) {
-        toggleProjelerBtn.addEventListener('click', () => {
-            projelerSection.classList.add('visible');
-            toggleProjelerBtn.textContent = 'Projeler Aşağıda 👇';
-
-            setTimeout(() => {
-                projelerSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 50);
-        });
-    }
-
-    // SCROLL DİNLEYİCİSİ: Yavaşça Belirme (Fade In) ve Soluklaşarak Yok Olma (Fade Out)
-    window.addEventListener('scroll', () => {
-        if (!projelerSection) return;
-
-        const scrollPos = window.scrollY;
-
-        // Aşağı kaydırıldığında projeleri yumuşakça göster
-        if (scrollPos > 80) {
-            projelerSection.classList.add('visible');
-        } 
-        // Sayfa en üste çıktığında soluklaşarak kaybolsun
-        else if (scrollPos < 30) {
-            projelerSection.classList.remove('visible');
-            if (toggleProjelerBtn) {
-                toggleProjelerBtn.textContent = 'Projelerimi İncele 🚀';
-            }
-        }
-    });
-});
-// Projelerimi İncele Butonuna Tıklayınca Başa Dönmeyi Engelle ve Aşağı Kaydır
-document.addEventListener('DOMContentLoaded', () => {
-    const projelerBtn = document.getElementById('toggle-projeler-btn');
-    const projelerSection = document.getElementById('projeler');
-
-    if (projelerBtn && projelerSection) {
-        projelerBtn.addEventListener('click', (e) => {
-            e.preventDefault(); // Sayfanın en başa fırlamasını ENGELER
-            projelerSection.scrollIntoView({ behavior: 'smooth' }); // Yumuşakça aşağı kaydırır
-        });
-    }
-});
+    // Şimdilik gerçek bir gönderim yapmıyoruz — bir servise bağlanınca burası güncellenecek.
+    status.textContent = `Teşekkürler ${name}, mesajın alındı. En kısa sürede dönüş yapacağım.`;
+    status.style.color = 'var(--mint)';
+    form.reset();
+  });
+})();

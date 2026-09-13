@@ -1,134 +1,108 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profesyonel Web Sitem</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Gece Modu Flaş Önleyici Script -->
-    <script>
-        if (localStorage.getItem('theme') === 'dark') {
-            document.documentElement.classList.add('dark-mode');
-        }
-    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mustafa Köse — Kodlama Yolculuğu</title>
+<meta name="description" content="Ankara merkezli front-end geliştirici adayı Mustafa Köse'nin HTML, CSS ve JavaScript ile öğrenirken inşa ettiği projeler.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+  if (localStorage.getItem('theme') === 'light') {
+    document.documentElement.classList.add('light-mode');
+  }
+</script>
 </head>
 <body>
 
-    <!-- ÜST NAVİGASYON MENÜSÜ -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">
-                <span>🚀</span> KodlamaYolculuğum
-            </a>
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo"><span class="dot"></span> Kodlama Yolculuğu</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Ana Sayfa</a></li>
+      <li><a href="hakkimda.html">Hakkımda</a></li>
+      <li><a href="iletisim.html">İletişim</a></li>
+      <li>
+        <button id="theme-toggle" class="theme-icon-btn" aria-label="Temayı değiştir" title="Temayı değiştir">
+          <svg id="theme-moon" class="theme-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg id="theme-sun" class="theme-svg hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Ana Sayfa</a></li>
-                <li><a href="hakkimda.html">Hakkımda</a></li>
-                <li><a href="iletisim.html">İletişim</a></li>
-                <li>
-                    <button id="theme-toggle" class="theme-icon-btn" aria-label="Temayı Değiştir" title="Temayı Değiştir">
-                        <svg id="theme-moon" class="theme-svg" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                        <svg id="theme-sun" class="theme-svg hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                    </button>
-                </li>
-            </ul>
-        </div>
-    </nav>
+<header class="hero container">
+  <p class="hero-kicker">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg>
+    Ankara, Türkiye
+  </p>
+  <h1>Öğrendiğim her şeyi burada inşa ediyorum.</h1>
+  <p class="lead">Ben Mustafa. HTML, CSS ve JavaScript ile kendi kendime kod yazmayı öğreniyorum — ve öğrendiğim her şeyi gerçek bir projeye dönüştürüyorum. Bu site de o projelerden biri.</p>
+  <div class="hero-actions">
+    <button type="button" class="btn-primary" onclick="document.getElementById('rota').scrollIntoView({behavior:'smooth'})">
+      Yolculuğu gör
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+    </button>
+    <a href="iletisim.html" class="btn-secondary">İletişime geç</a>
+  </div>
+</header>
 
-    <!-- MODERN CAM EFEKTLİ TEK EKRAN KAPAK -->
-    <header class="hero-screen">
-        <!-- Arka Plan Işık Efektleri -->
-        <div class="glow-orb orb-1"></div>
-        <div class="glow-orb orb-2"></div>
+<main class="container route-section" id="rota">
+  <div class="route-intro">
+    <h2>Yolculuğum, durak durak</h2>
+    <p>Sıfırdan başladığım noktadan bugüne kadar öğrendiklerim ve inşa ettiğim projeler — kronolojik sırayla.</p>
+  </div>
 
-        <div class="hero-content">
-            <h1>Geleceğin Web Sitelerini Tasarlıyorum</h1>
-            <p>Sıfırdan başladım, HTML ve CSS ile modern arayüzler geliştirmeyi öğreniyorum.</p>
-        </div>
+  <div class="route">
 
-        <div class="hero-services">
-            <h2 class="section-title-light">Neler Yapıyorum? 💻</h2>
-            <div class="card-grid">
-                <div class="card glass-card">
-                    <div class="card-icon">💻</div>
-                    <h3>Web Tasarım</h3>
-                    <p>Kullanıcı dostu, modern ve mobil uyumlu arayüzler tasarlıyorum.</p>
-                </div>
-                <div class="card glass-card">
-                    <div class="card-icon">⚡</div>
-                    <h3>Hızlı Kodlama</h3>
-                    <p>Clean code ilkelerine uygun, performanslı ve temiz kod yazıyorum.</p>
-                </div>
-                <div class="card glass-card">
-                    <div class="card-icon">🎨</div>
-                    <h3>CSS & Animasyon</h3>
-                    <p>Şık renk paletleri ve akıcı geçiş efektleriyle siteleri canlandırıyorum.</p>
-                </div>
-            </div>
+    <div class="stop">
+      <span class="stop-tag">Durak 1 — Temeller</span>
+      <h3>HTML & CSS ile ilk adımlar</h3>
+      <p>Semantik HTML yapısını, kutu modelini ve Flexbox/Grid ile responsive düzen kurmayı öğrendim. Bu site, o temellerin üzerine kuruldu.</p>
+      <div class="stop-links">
+        <a href="hakkimda.html">Hakkımda daha fazlası →</a>
+      </div>
+    </div>
 
-            <button type="button" class="btn-primary hero-btn" onclick="document.getElementById('projeler').scrollIntoView({ behavior: 'smooth' }); return false;">
-    Projelerimi İncele 🚀
-</button>
-        </div>
-    </header>
+    <div class="stop">
+      <span class="stop-tag">Durak 2 — Bu site</span>
+      <h3>Kişisel Portfolyo</h3>
+      <p>Gece/gündüz modu, sayfa geçişleri ve bu "yolculuk" tasarımıyla sıfırdan kodladığım kişisel sitem. Gördüğün sayfa, tam olarak bu proje.</p>
+      <div class="stop-links">
+        <a href="index.html">Canlı demo</a>
+        <a href="https://github.com/mustafa-portfolio/portfolio" target="_blank" rel="noopener">Kaynak kod ↗</a>
+      </div>
+    </div>
 
-    <!-- İÇERİK BÖLÜMÜ (PROJELER) -->
-    <main class="container">
-        <section id="projeler" class="fade-section">
-            <h2 class="section-title">Öne Çıkan Projelerim 🚀</h2>
+    <div class="stop">
+      <span class="stop-tag">Durak 3 — API'lerle tanışma</span>
+      <h3>Hava Durumu Uygulaması</h3>
+      <p>Bir dış API'den anlık veri çekip minimalist bir arayüzde göstermeyi öğrendiğim ilk JavaScript projem.</p>
+      <div class="stop-links">
+        <a href="havadurumu.html">Canlı demo</a>
+        <a href="kodlar.html">Kaynak kod</a>
+      </div>
+    </div>
 
-            <div class="card-grid">
-                <!-- 1. PROJE: Kişisel Portfolyo Sitem -->
-                <div class="project-card card">
-                    <div class="project-tag">HTML & CSS</div>
-                    <h3>Kişisel Blog & Portfolyo</h3>
-                    <p>Sıfırdan tasarladığım, gece modu desteği ve akıcı animasyonlara sahip modern kişisel web sitesi.</p>
-                    <div class="project-links">
-                        <a href="index.html" class="project-btn demo-btn">Canlı Demo</a>
-                        <a href="https://github.com/mustafa-portfolio/portfolio" target="_blank" class="project-btn code-btn">Kodları Gör ↗</a>
-                    </div>
-                </div>
+    <div class="stop">
+      <span class="stop-tag">Durak 4 — Şu an buradayım</span>
+      <h3>Yapılacaklar Uygulaması</h3>
+      <span class="stop-status">Yapım aşamasında</span>
+      <p>DOM yönetimi ve tarayıcı hafızasında (localStorage) veri saklamayı öğrenmek için geliştirdiğim görev yöneticisi. Yakında canlıya alıyorum.</p>
+    </div>
 
-                <!-- 2. PROJE: İnteraktif To-Do App -->
-                <div class="project-card card">
-                    <div class="project-tag">JavaScript</div>
-                    <h3>İnteraktif Yapılacaklar (To-Do)</h3>
-                    <p>Görev ekleme, silme ve tarayıcı hafızasında saklama özellikli dinamik görev yöneticisi.</p>
-                    <div class="project-links">
-                        <a href="#" class="project-btn demo-btn">Yakında</a>
-                        <a href="#" class="project-btn code-btn">Kodları Gör</a>
-                    </div>
-                </div>
+  </div>
+</main>
 
-                <!-- 3. PROJE: Hava Durumu Uygulaması -->
-                <div class="project-card card">
-                    <div class="project-tag">Web App</div>
-                    <h3>Hava Durumu Uygulaması</h3>
-                    <p>API kullanarak anlık hava durumu verilerini çeken, minimalist arayüzlü web uygulaması.</p>
-                    <div class="project-links">
-                        <a href="havadurumu.html" class="project-btn demo-btn">Canlı Demo</a>
-                        <a href="kodlar.html" class="project-btn code-btn">Kodları Gör</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+<footer class="container">
+  <div class="footer-row">
+    <span>© 2026 Mustafa Köse</span>
+    <a href="https://github.com/mustafa-portfolio" target="_blank" rel="noopener">GitHub'da takip et</a>
+  </div>
+</footer>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

@@ -1,152 +1,141 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proje Kaynak Kodları</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Sayfa Yüklenmeden Temayı Uygula (Flaş/Beyazlık Önleyici) -->
-    <script>
-        if (localStorage.getItem('theme') === 'dark') {
-            document.documentElement.classList.add('dark-mode');
-        }
-    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaynak Kodları — Mustafa Köse</title>
+<meta name="description" content="Hava Durumu Uygulaması'nın HTML ve JavaScript kodlarına göz at.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+  if (localStorage.getItem('theme') === 'light') {
+    document.documentElement.classList.add('light-mode');
+  }
+</script>
 </head>
 <body>
 
-    <!-- ÜST NAVİGASYON MENÜSÜ -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">
-                <span>🚀</span> KodlamaYolculuğum
-            </a>
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo"><span class="dot"></span> Kodlama Yolculuğu</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Ana Sayfa</a></li>
+      <li><a href="hakkimda.html">Hakkımda</a></li>
+      <li><a href="iletisim.html">İletişim</a></li>
+      <li>
+        <button id="theme-toggle" class="theme-icon-btn" aria-label="Temayı değiştir" title="Temayı değiştir">
+          <svg id="theme-moon" class="theme-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg id="theme-sun" class="theme-svg hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-            <!-- Menü Linkleri ve Gece Modu Butonu Aynı hizada (ul içinde) -->
-            <ul class="nav-links">
-                <li><a href="index.html">Ana Sayfa</a></li>
-                <li><a href="hakkimda.html">Hakkımda</a></li>
-                <li><a href="iletisim.html">İletişim</a></li>
-                <li>
-                    <button id="theme-toggle" class="theme-icon-btn" aria-label="Temayı Değiştir" title="Temayı Değiştir">
-                        <svg id="theme-moon" class="theme-svg" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                        <svg id="theme-sun" class="theme-svg hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                    </button>
-                </li>
-            </ul>
-        </div>
-    </nav>
+<header class="page-header container">
+  <p class="hero-kicker stop-tag">Kaynak kod</p>
+  <h1>Nasıl inşa ettim?</h1>
+</header>
 
-    <!-- İÇERİK BÖLÜMÜ -->
-    <main class="container">
-        <div class="code-viewer-container card">
-            <div class="code-header">
-                <div>
-                    <span class="project-tag">Web App</span>
-                    <h2 id="project-title">Hava Durumu Uygulaması - Kaynak Kodları</h2>
-                </div>
-                <a href="havadurumu.html" class="project-btn demo-btn">Canlı Demoya Git ↗</a>
-            </div>
-
-            <p class="code-description">
-                Bu projede Open-Meteo API'si kullanılarak canlı hava durumu ve şehir arama önerileri geliştirilmiştir. Aşağıdaki sekmeden incelemek istediğiniz dosya türünü seçebilirsiniz:
-            </p>
-
-            <!-- Kod Sekmeleri -->
-            <div class="code-tabs">
-                <button class="tab-btn active" onclick="switchTab('html')">index.html / HTML</button>
-                <button class="tab-btn" onclick="switchTab('javascript')">script.js / JS</button>
-            </div>
-
-            <!-- Kod Görüntüleme Alanı -->
-            <div class="code-block-wrapper">
-                <button class="copy-btn" id="copy-btn" onclick="copyCode()">📋 Kodları Kopyala</button>
-                <pre><code id="code-content"></code></pre>
-            </div>
-        </div>
-    </main>
-
-    <!-- ANA JAVASCRIPT DOSYASI -->
-    <script src="script.js"></script>
-
-    <!-- KOD GÖRÜNTÜLEYİCİ MANTIĞI -->
-    <script>
-        const codeSnippets = {
-            html: `<!-- HAVA DURUMU ARAMA KUTUSU -->
-<div class="weather-search-wrapper">
-    <div class="weather-search-box">
-        <input type="text" id="city-input" placeholder="Şehir adı yazın (Örn: Ankara)">
-        <button id="search-btn" class="btn-primary">Ara</button>
+<main class="container tool-page">
+  <div class="code-viewer-container card">
+    <div class="code-header">
+      <div>
+        <span class="project-tag">Web App</span>
+        <h2 id="project-title">Hava Durumu Uygulaması</h2>
+      </div>
+      <a href="havadurumu.html" class="project-btn">Canlı demoya git ↗</a>
     </div>
-    <ul id="suggestions-list" class="suggestions-list hidden"></ul>
+    <p class="code-description">
+      Bu projede Open-Meteo API'si kullanılarak canlı hava durumu ve şehir arama önerileri geliştirildi. Not: burada asıl kodun kısaltılmış bir özeti var — tam dosyalar için GitHub reposuna bakabilirsin.
+    </p>
+
+    <div class="code-tabs">
+      <button class="tab-btn active" onclick="switchTab('html')">index.html / HTML</button>
+      <button class="tab-btn" onclick="switchTab('javascript')">script.js / JS</button>
+    </div>
+
+    <div class="code-block-wrapper">
+      <button class="copy-btn" id="copy-btn" onclick="copyCode()">Kodu kopyala</button>
+      <pre><code id="code-content"></code></pre>
+    </div>
+
+    <p class="code-description" style="margin-top:20px; margin-bottom:0;">
+      <a href="https://github.com/mustafa-portfolio/portfolio" target="_blank" rel="noopener" style="font-weight:600; border-bottom:2px solid var(--mint); padding-bottom:2px;">Tüm dosyaları GitHub'da gör ↗</a>
+    </p>
+  </div>
+</main>
+
+<footer class="container">
+  <div class="footer-row">
+    <span>© 2026 Mustafa Köse</span>
+    <a href="https://github.com/mustafa-portfolio" target="_blank" rel="noopener">GitHub'da takip et</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+const codeSnippets = {
+  html: `<!-- HAVA DURUMU ARAMA KUTUSU -->
+<div class="weather-search-wrapper">
+  <div class="weather-search-box">
+    <input type="text" id="city-input" placeholder="Şehir adı yazın (Örn: Ankara)">
+    <button id="search-btn" class="btn-primary">Ara</button>
+  </div>
+  <ul id="suggestions-list" class="suggestions-list hidden"></ul>
 </div>
 
 <!-- SONUÇ ALANI -->
 <div id="weather-result" class="weather-result-box">
-    <div class="weather-icon" id="weather-icon">☀️</div>
-    <h3 id="weather-city">Ankara, TR</h3>
-    <div class="weather-temp" id="weather-temp">24°C</div>
-    <p class="weather-desc" id="weather-desc">Açık Güneşli</p>
+  <div class="weather-icon" id="weather-icon">☀️</div>
+  <h3 id="weather-city">Ankara, TR</h3>
+  <div class="weather-temp" id="weather-temp">24°C</div>
+  <p class="weather-desc" id="weather-desc">Açık Güneşli</p>
 </div>`,
-            javascript: `// API'den Canlı Hava Durumu Çekme Fonksiyonu
+  javascript: `// API'den Canlı Hava Durumu Çekme Fonksiyonu
 async function getWeather(cityName) {
-    const geoUrl = \`https://geocoding-api.open-meteo.com/v1/search?name=\${encodeURIComponent(cityName)}&count=1&language=tr&format=json\`;
-    const response = await fetch(geoUrl);
-    const data = await response.json();
+  const geoUrl = \`https://geocoding-api.open-meteo.com/v1/search?name=\${encodeURIComponent(cityName)}&count=1&language=tr&format=json\`;
+  const response = await fetch(geoUrl);
+  const data = await response.json();
 
-    if (data.results && data.results.length > 0) {
-        const city = data.results[0];
-        const weatherUrl = \`https://api.open-meteo.com/v1/forecast?latitude=\${city.latitude}&longitude=\${city.longitude}&current_weather=true\`;
-        
-        const wRes = await fetch(weatherUrl);
-        const wData = await wRes.json();
-        
-        // Ekrana Yazdırma
-        document.getElementById('weather-temp').textContent = \`\${Math.round(wData.current_weather.temperature)}°C\`;
-    }
+  if (data.results && data.results.length > 0) {
+    const city = data.results[0];
+    const weatherUrl = \`https://api.open-meteo.com/v1/forecast?latitude=\${city.latitude}&longitude=\${city.longitude}&current_weather=true\`;
+    const wRes = await fetch(weatherUrl);
+    const wData = await wRes.json();
+
+    // Ekrana Yazdırma
+    document.getElementById('weather-temp').textContent = \`\${Math.round(wData.current_weather.temperature)}°C\`;
+  }
 }`
-        };
+};
 
-        let currentTab = 'html';
+let currentTab = 'html';
 
-        function renderCode() {
-            document.getElementById('code-content').textContent = codeSnippets[currentTab];
-        }
+function renderCode() {
+  document.getElementById('code-content').textContent = codeSnippets[currentTab];
+}
 
-        function switchTab(tab) {
-            currentTab = tab;
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            if (event) event.target.classList.add('active');
-            renderCode();
-        }
+function switchTab(tab) {
+  currentTab = tab;
+  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+  if (event) event.target.classList.add('active');
+  renderCode();
+}
 
-        function copyCode() {
-            const codeText = codeSnippets[currentTab];
-            navigator.clipboard.writeText(codeText).then(() => {
-                const btn = document.getElementById('copy-btn');
-                btn.textContent = '✅ Kopyalandı!';
-                setTimeout(() => {
-                    btn.textContent = '📋 Kodları Kopyala';
-                }, 2000);
-            });
-        }
+function copyCode() {
+  const codeText = codeSnippets[currentTab];
+  navigator.clipboard.writeText(codeText).then(() => {
+    const btn = document.getElementById('copy-btn');
+    btn.textContent = 'Kopyalandı';
+    setTimeout(() => {
+      btn.textContent = 'Kodu kopyala';
+    }, 2000);
+  });
+}
 
-        // Başlangıçta HTML kodunu yükle
-        renderCode();
-    </script>
+renderCode();
+</script>
 </body>
 </html>
