@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sayfa bulunamadı | Muhammed Mustafa Köse</title>
+    <meta name="description" content="Aradığın sayfa bulunamadı.">
+    <meta name="author" content="Muhammed Mustafa Köse">
+    <meta name="theme-color" content="#0a1030">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Sayfa bulunamadı | Muhammed Mustafa Köse">
+    <meta property="og:description" content="Aradığın sayfa bulunamadı.">
+    <meta property="og:locale" content="tr_TR">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Gece modu kaydını sayfa çizilmeden uygular (beyaz çakmayı önler) -->
+    <script>try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark-mode');}catch(e){}</script>
+</head>
+<body>
+    <a class="skip-link" href="#icerik">İçeriğe geç</a>
+
+    <header class="site-header">
+        <nav class="nav" aria-label="Ana menü">
+            <a class="brand" href="index.html" aria-label="Ana sayfa">
+                <span class="brand-mark" aria-hidden="true">MMK</span>
+                <span>Mustafa Köse</span>
+            </a>
+            <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Menüyü aç"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+                <li><a class="nav-link" href="hakkimda.html">Hakkımda</a></li>
+                <li><a class="nav-link" href="cv.html">Özgeçmiş</a></li>
+                <li><a class="nav-link" href="iletisim.html">İletişim</a></li>
+                <li>
+                    <button id="theme-toggle" class="icon-btn" type="button" aria-label="Gece temasına geç" title="Gece temasına geç">
+                        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="icerik">
+        <div class="wrap not-found">
+            <h1>404</h1>
+            <p>Aradığın sayfa bulunamadı. Adres yanlış yazılmış ya da sayfa taşınmış olabilir.</p>
+            <div class="btn-row" style="justify-content:center"><a class="btn btn-primary" href="index.html">Ana sayfaya dön</a></div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-grid">
+                <div>
+                    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">MMK</span><span>Muhammed Mustafa Köse</span></a>
+                    <p>Ankara'da bilgisayar mühendisliği öğrencisi. Yazılımı küçük projeler yaparak öğreniyorum.</p>
+                </div>
+                <nav aria-label="Site bağlantıları">
+                    <h2>Sayfalar</h2>
+                    <ul>
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="hakkimda.html">Hakkımda</a></li>
+                        <li><a href="cv.html">Özgeçmiş</a></li>
+                        <li><a href="iletisim.html">İletişim</a></li>
+                    </ul>
+                </nav>
+                <div>
+                    <h2>Bağlantılar</h2>
+                    <ul>
+                        <li><a href="https://github.com/mustafa-portfolio" target="_blank" rel="noopener">GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/muhammed-mustafa-k%C3%B6se-247774420" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li><a href="mailto:mmustafakose53@gmail.com">mmustafakose53@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="copyright">© <span id="year">2026</span> Muhammed Mustafa Köse</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
