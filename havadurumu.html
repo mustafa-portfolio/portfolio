@@ -11,15 +11,15 @@
     <meta property="og:title" content="Hava Durumu Uygulaması | Muhammed Mustafa Köse">
     <meta property="og:description" content="Open-Meteo API ile çalışan hava durumu uygulaması: şehir arama, canlı sıcaklık ve 5 günlük tahmin.">
     <meta property="og:locale" content="tr_TR">
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
-    <!-- Gece modu kaydını sayfa çizilmeden uygular (beyaz çakmayı önler) -->
-    <script>try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark-mode');}catch(e){}</script>
+    <!-- Gece modu kaydını sayfa çizilmeden uygular (RULES.md gereği varsayılan dark mode) -->
+    <script>try{var t=localStorage.getItem('theme');if(t!=='light')document.documentElement.classList.add('dark-mode');}catch(e){}</script>
 </head>
 <body>
     <a class="skip-link" href="#icerik">İçeriğe geç</a>
@@ -33,6 +33,7 @@
             <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Menüyü aç"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
             <ul class="nav-menu" id="nav-menu">
                 <li><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+                <li><a class="nav-link active" href="index.html#projeler">Projeler</a></li>
                 <li><a class="nav-link" href="hakkimda.html">Hakkımda</a></li>
                 <li><a class="nav-link" href="cv.html">Özgeçmiş</a></li>
                 <li><a class="nav-link" href="iletisim.html">İletişim</a></li>
@@ -51,7 +52,7 @@
             <div class="wrap">
                 <div class="app-shell card">
                     <h1>Hava Durumu</h1>
-                    <p class="sub">Bir şehir ara ya da konumunu kullan.</p>
+                    <p class="sub">Open-Meteo ile canlı hava durumu, şehir arama ve 5 günlük tahmin.</p>
 
                     <div class="search-wrap">
                         <div class="search-row">
@@ -61,6 +62,14 @@
                             <button id="geo-btn" class="btn btn-ghost" type="button" title="Konumumu kullan">Konumum</button>
                         </div>
                         <ul id="suggestions-list" class="suggestions hidden" role="listbox" aria-label="Şehir önerileri"></ul>
+                        <div class="quick-cities" role="group" aria-label="Hızlı şehir seçimi">
+                            <button type="button" class="quick-city-chip active" data-city="Ankara" data-lat="39.9334" data-lon="32.8597">Ankara</button>
+                            <button type="button" class="quick-city-chip" data-city="İstanbul" data-lat="41.0082" data-lon="28.9784">İstanbul</button>
+                            <button type="button" class="quick-city-chip" data-city="İzmir" data-lat="38.4192" data-lon="27.1287">İzmir</button>
+                            <button type="button" class="quick-city-chip" data-city="Bursa" data-lat="40.1885" data-lon="29.0610">Bursa</button>
+                            <button type="button" class="quick-city-chip" data-city="Antalya" data-lat="36.8969" data-lon="30.7133">Antalya</button>
+                            <button type="button" class="quick-city-chip" data-city="Trabzon" data-lat="41.0015" data-lon="39.7178">Trabzon</button>
+                        </div>
                     </div>
 
                     <div id="weather-result" aria-live="polite">
@@ -88,6 +97,15 @@
                         <li><a href="hakkimda.html">Hakkımda</a></li>
                         <li><a href="cv.html">Özgeçmiş</a></li>
                         <li><a href="iletisim.html">İletişim</a></li>
+                    </ul>
+                </nav>
+                <nav aria-label="Proje bağlantıları">
+                    <h2>Projeler</h2>
+                    <ul>
+                        <li><a href="https://mustafa-portfolio.github.io/vibe-pomodoro/" target="_blank" rel="noopener">Vibe Pomodoro</a></li>
+                        <li><a href="havadurumu.html">Hava Durumu</a></li>
+                        <li><a href="gorevler.html">Yapılacaklar</a></li>
+                        <li><a href="kodlar.html">Proje Kodları</a></li>
                     </ul>
                 </nav>
                 <div>

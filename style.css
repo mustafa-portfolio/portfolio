@@ -19,46 +19,63 @@
 
 /* ---------- 1. RENKLER ---------- */
 :root {
-    --bg: #f5f7fb;
-    --surface: #ffffff;
-    --surface-2: #eef2f9;
-    --text: #0e1530;
-    --muted: #55607a;
-    --line: #dfe5f0;
-    --brand: #2f5bea;
-    --brand-strong: #2246c4;
-    --brand-soft: rgba(47, 91, 234, 0.1);
-    --accent: #f2b13c;
-    --ok: #15803d;
-    --danger: #c62828;
-    --focus: #2f5bea;
+    --bg: #09090b;
+    --surface: #18181b;
+    --surface-2: #141417;
+    --text: #f4f4f5;
+    --muted: #a1a1aa;
+    --line: #27272a;
+    --brand: #3b82f6;
+    --brand-strong: #60a5fa;
+    --brand-soft: rgba(59, 130, 246, 0.15);
+    --accent: #f59e0b;
+    --ok: #10b981;
+    --danger: #ef4444;
+    --focus: #3b82f6;
 
-    --hero-bg: #0a1030;
-    --hero-text: #eef1fb;
-    --hero-muted: #b4bfdc;
+    --hero-bg: #09090b;
+    --hero-text: #f4f4f5;
+    --hero-muted: #a1a1aa;
 
-    --radius: 14px;
+    --radius: 12px;
     --radius-sm: 8px;
-    --shadow: 0 1px 2px rgba(14, 21, 48, 0.06), 0 8px 24px rgba(14, 21, 48, 0.06);
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.3);
 
-    --font: 'Manrope', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --font: 'Inter', 'Manrope', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
     --mono: 'Fira Code', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+    color-scheme: dark;
 }
 
 html.dark-mode {
-    --bg: #080c18;
-    --surface: #111831;
-    --surface-2: #0d1326;
-    --text: #eef1fb;
-    --muted: #9aa6c4;
-    --line: #212b4a;
-    --brand: #7b98ff;
-    --brand-strong: #9db1ff;
-    --brand-soft: rgba(123, 152, 255, 0.14);
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.35);
-    --hero-bg: #060a1c;
-    --focus: #9db1ff;
+    --bg: #09090b;
+    --surface: #18181b;
+    --surface-2: #141417;
+    --text: #f4f4f5;
+    --muted: #a1a1aa;
+    --line: #27272a;
+    --brand: #3b82f6;
+    --brand-strong: #60a5fa;
+    --brand-soft: rgba(59, 130, 246, 0.15);
+    --shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+    --hero-bg: #09090b;
+    --focus: #60a5fa;
     color-scheme: dark;
+}
+
+html:not(.dark-mode) {
+    --bg: #f8fafc;
+    --surface: #ffffff;
+    --surface-2: #f1f5f9;
+    --text: #0f172a;
+    --muted: #64748b;
+    --line: #e2e8f0;
+    --brand: #2563eb;
+    --brand-strong: #1d4ed8;
+    --brand-soft: rgba(37, 99, 235, 0.1);
+    --shadow: 0 1px 3px rgba(15, 23, 42, 0.08), 0 8px 24px rgba(15, 23, 42, 0.06);
+    --hero-bg: #0b112c;
+    --focus: #2563eb;
+    color-scheme: light;
 }
 
 /* ---------- 2. TEMEL ---------- */
@@ -191,6 +208,11 @@ html.dark-mode .btn-primary { color: #0a1030; }
 .card {
     background: var(--surface); border: 1px solid var(--line);
     border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    transition: all 0.2s ease;
+}
+.card:hover {
+    border-color: rgba(59, 130, 246, 0.35);
 }
 
 /* ---------- 5. KAPAK (HERO) ---------- */
@@ -293,6 +315,10 @@ html.dark-mode .btn-primary { color: #0a1030; }
 .project {
     display: grid; grid-template-columns: 150px 1fr auto; gap: 8px 36px; align-items: start;
     padding: 32px 0; border-bottom: 1px solid var(--line);
+    transition: all 0.2s ease;
+}
+.project:hover {
+    border-bottom-color: rgba(59, 130, 246, 0.4);
 }
 .project-meta { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; padding-top: 4px; }
 .status { font-size: 0.82rem; font-weight: 700; color: var(--muted); display: inline-flex; align-items: center; gap: 7px; }
@@ -530,7 +556,7 @@ html.dark-mode .filter-btn[aria-pressed="true"] { color: #0a1030; }
 
 /* ---------- 13. ALT BİLGİ ve 404 ---------- */
 .site-footer { border-top: 1px solid var(--line); padding: 48px 0 32px; margin-top: 40px; }
-.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 36px; }
 .footer-grid h2 { font-size: 0.95rem; margin-bottom: 12px; }
 .footer-grid p { color: var(--muted); max-width: 40ch; margin-top: 12px; font-size: 0.95rem; }
 .footer-grid ul { list-style: none; }
@@ -542,6 +568,139 @@ html.dark-mode .filter-btn[aria-pressed="true"] { color: #0a1030; }
 .not-found { min-height: 60vh; display: grid; place-content: center; text-align: center; gap: 16px; padding: 64px 0; }
 .not-found h1 { font-size: clamp(4rem, 14vw, 8rem); font-weight: 800; letter-spacing: -0.05em; color: var(--brand); line-height: 1; }
 .not-found p { color: var(--muted); }
+
+/* ---------- 13.5 TOAST BİLDİRİM SİSTEMİ ---------- */
+.toast-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: min(420px, calc(100vw - 32px));
+    pointer-events: none;
+}
+.toast {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 18px;
+    border-radius: 12px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    color: var(--text);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    pointer-events: auto;
+    font-size: 0.92rem;
+    font-weight: 600;
+    line-height: 1.4;
+    animation: toastSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.toast.toast-hide {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+}
+.toast-icon {
+    display: grid;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    font-size: 0.85rem;
+}
+.toast.success { border-color: rgba(16, 185, 129, 0.4); }
+.toast.success .toast-icon { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+.toast.error { border-color: rgba(239, 68, 68, 0.4); }
+.toast.error .toast-icon { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
+.toast.info { border-color: rgba(59, 130, 246, 0.4); }
+.toast.info .toast-icon { background: rgba(59, 130, 246, 0.15); color: #3b82f6; }
+.toast-msg { flex: 1; word-break: break-word; }
+.toast-close {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 4px;
+    line-height: 1;
+}
+.toast-close:hover { color: var(--text); }
+@keyframes toastSlideIn {
+    from { opacity: 0; transform: translateY(16px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Hızlı Şehir Butonları */
+.quick-cities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+    margin-bottom: 18px;
+}
+.quick-city-chip {
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.quick-city-chip:hover {
+    color: var(--brand);
+    border-color: var(--brand);
+    background: var(--brand-soft);
+}
+.quick-city-chip.active {
+    background: var(--brand);
+    border-color: var(--brand);
+    color: #fff;
+}
+html.dark-mode .quick-city-chip.active {
+    color: #09090b;
+}
+
+/* Todo Düzenleme */
+.todo-item .edit-input {
+    flex: 1;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--brand);
+    background: var(--bg);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+.todo-actions-group {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.todo-edit-btn {
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    padding: 6px 8px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 0.82rem;
+    transition: all 0.2s ease;
+}
+.todo-edit-btn:hover {
+    color: var(--brand);
+    background: var(--brand-soft);
+}
 
 /* ---------- 14. MOBİL UYUM ---------- */
 @media (max-width: 960px) {
@@ -580,6 +739,50 @@ html.dark-mode .filter-btn[aria-pressed="true"] { color: #0a1030; }
     .roadmap li::after { display: none; }
     .forecast { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px; }
     .editor { font-size: 0.78rem; }
+}
+
+@media (max-width: 540px) {
+    .wrap { width: calc(100% - 28px); }
+    .forecast {
+        display: flex;
+        overflow-x: auto;
+        padding-bottom: 8px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 8px;
+    }
+    .forecast .day {
+        min-width: 78px;
+        flex: 1 0 78px;
+        scroll-snap-align: start;
+    }
+    .search-row {
+        flex-direction: column;
+    }
+    .search-row input, .search-row button {
+        width: 100%;
+    }
+    .todo-add {
+        flex-direction: column;
+    }
+    .todo-add button {
+        width: 100%;
+    }
+    .todo-item {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    .cv-actions {
+        flex-direction: column;
+    }
+    .cv-actions .btn {
+        width: 100%;
+    }
+    .toast-container {
+        left: 14px;
+        right: 14px;
+        bottom: 16px;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {

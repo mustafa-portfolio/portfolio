@@ -27,6 +27,14 @@ const PROJECTS = {
             { name: 'todo.js', path: 'todo.js' }
         ]
     },
+    pomodoro: {
+        label: 'Vibe Pomodoro',
+        demo: 'https://mustafa-portfolio.github.io/vibe-pomodoro/',
+        text: 'Pomodoro zamanlayıcı, Web Audio API ses sentezi ve LocalStorage odak takipçisi.',
+        files: [
+            { name: 'README.md', path: 'https://raw.githubusercontent.com/mustafa-portfolio/vibe-pomodoro/main/README.md' }
+        ]
+    },
     site: {
         label: 'Bu Site',
         demo: 'index.html',
@@ -128,8 +136,10 @@ copyBtn.addEventListener('click', async () => {
     try {
         await navigator.clipboard.writeText(currentText);
         copyBtn.textContent = 'Kopyalandı';
+        if (window.showToast) window.showToast('Kaynak kod panoya kopyalandı!', 'success', 2000);
     } catch (e) {
         copyBtn.textContent = 'Kopyalanamadı';
+        if (window.showToast) window.showToast('Kopyalama başarısız oldu.', 'warning');
     }
     setTimeout(() => { copyBtn.textContent = 'Kodu kopyala'; }, 2000);
 });

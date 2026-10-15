@@ -11,15 +11,15 @@
     <meta property="og:title" content="Sayfa bulunamadı | Muhammed Mustafa Köse">
     <meta property="og:description" content="Aradığın sayfa bulunamadı.">
     <meta property="og:locale" content="tr_TR">
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
-    <!-- Gece modu kaydını sayfa çizilmeden uygular (beyaz çakmayı önler) -->
-    <script>try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark-mode');}catch(e){}</script>
+    <!-- Gece modu kaydını sayfa çizilmeden uygular (RULES.md gereği varsayılan dark mode) -->
+    <script>try{var t=localStorage.getItem('theme');if(t!=='light')document.documentElement.classList.add('dark-mode');}catch(e){}</script>
 </head>
 <body>
     <a class="skip-link" href="#icerik">İçeriğe geç</a>
@@ -33,6 +33,7 @@
             <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Menüyü aç"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
             <ul class="nav-menu" id="nav-menu">
                 <li><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+                <li><a class="nav-link" href="index.html#projeler">Projeler</a></li>
                 <li><a class="nav-link" href="hakkimda.html">Hakkımda</a></li>
                 <li><a class="nav-link" href="cv.html">Özgeçmiş</a></li>
                 <li><a class="nav-link" href="iletisim.html">İletişim</a></li>
@@ -68,6 +69,15 @@
                         <li><a href="hakkimda.html">Hakkımda</a></li>
                         <li><a href="cv.html">Özgeçmiş</a></li>
                         <li><a href="iletisim.html">İletişim</a></li>
+                    </ul>
+                </nav>
+                <nav aria-label="Proje bağlantıları">
+                    <h2>Projeler</h2>
+                    <ul>
+                        <li><a href="https://mustafa-portfolio.github.io/vibe-pomodoro/" target="_blank" rel="noopener">Vibe Pomodoro</a></li>
+                        <li><a href="havadurumu.html">Hava Durumu</a></li>
+                        <li><a href="gorevler.html">Yapılacaklar</a></li>
+                        <li><a href="kodlar.html">Proje Kodları</a></li>
                     </ul>
                 </nav>
                 <div>
